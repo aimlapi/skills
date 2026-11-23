@@ -2,8 +2,8 @@
 // Install AI/ML API agent skills into the folder your coding agent reads.
 // Node 18+, no dependencies.
 //
-//   npx @aimlapi/skills list
-//   npx @aimlapi/skills install [skill ...] [--agent claude] [--scope project|user] [--dir PATH] [--dry-run]
+//   npx @ai-ml.api/skills list
+//   npx @ai-ml.api/skills install [skill ...] [--agent claude] [--scope project|user] [--dir PATH] [--dry-run]
 
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, realpathSync, renameSync, rmSync } from "node:fs";
 import { homedir } from "node:os";
@@ -28,8 +28,8 @@ export const AGENTS = {
 const HELP = `Install AI/ML API agent skills.
 
 Usage:
-  npx @aimlapi/skills list
-  npx @aimlapi/skills install [skill ...] [options]
+  npx @ai-ml.api/skills list
+  npx @ai-ml.api/skills install [skill ...] [options]
 
 With no skill names, every skill is installed. Installing again updates them.
 

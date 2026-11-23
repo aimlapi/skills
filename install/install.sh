@@ -5,8 +5,8 @@
 #   curl -fsSL https://aimlapi.com/skills/install.sh | sh -s -- --agent cursor --scope user
 #   curl -fsSL https://aimlapi.com/skills/install.sh | sh -s -- aimlapi-models aimlapi-chat
 #
-# The skills come from the public npm package @aimlapi/skills (the same files
-# `npx @aimlapi/skills install` copies). The tarball is checked against the
+# The skills come from the public npm package @ai-ml.api/skills (the same files
+# `npx @ai-ml.api/skills install` copies). The tarball is checked against the
 # registry's sha512 integrity before anything is written. No sudo, no Node.js.
 #
 # Options (after `sh -s --`):
@@ -143,7 +143,7 @@ USAGE
 
 	# agent_dir AGENT SCOPE: the folder AGENT reads skills from, relative to
 	# the repository root (project) or the home folder (user). The same places
-	# `gh skill install` and `npx @aimlapi/skills` use.
+	# `gh skill install` and `npx @ai-ml.api/skills` use.
 	agent_dir() {
 		case $1:$2 in
 		claude:*) echo .claude/skills ;;
@@ -267,7 +267,7 @@ USAGE
 	case $version in
 	'' | *[!0-9A-Za-z.+-]*) die "invalid AIMLAPI_SKILLS_VERSION: ${AIMLAPI_SKILLS_VERSION-}" ;;
 	esac
-	metadata_url="$registry/@aimlapi%2fskills/$version"
+	metadata_url="$registry/@ai-ml.api%2fskills/$version"
 
 	SKILLS_TMP=$(mktemp -d 2>/dev/null || mktemp -d -t aimlapi-skills) || die "cannot create a temporary directory"
 	trap cleanup EXIT
@@ -275,7 +275,7 @@ USAGE
 	trap 'exit 143' TERM
 	trap 'exit 129' HUP
 
-	say "Fetching @aimlapi/skills@$version from $registry"
+	say "Fetching @ai-ml.api/skills@$version from $registry"
 	fetch "$metadata_url" "$SKILLS_TMP/metadata.json" ||
 		die "cannot fetch $metadata_url (no such version, or the registry is unreachable)"
 	metadata=$(tr -d '\r\n' <"$SKILLS_TMP/metadata.json")
@@ -305,7 +305,7 @@ USAGE
 			;;
 		esac
 	done
-	[ -n "$sha512" ] || die "the registry gave no sha512 integrity for @aimlapi/skills@$resolved; refusing to install"
+	[ -n "$sha512" ] || die "the registry gave no sha512 integrity for @ai-ml.api/skills@$resolved; refusing to install"
 
 	fetch "$tarball" "$SKILLS_TMP/package.tgz" || die "cannot download $tarball"
 	sha512_matches "$SKILLS_TMP/package.tgz" "$sha512" ||
@@ -324,7 +324,7 @@ USAGE
 		done
 	fi
 	for name in $skills; do
-		[ -f "$src/$name/SKILL.md" ] || die "@aimlapi/skills@$resolved has no skill $name"
+		[ -f "$src/$name/SKILL.md" ] || die "@ai-ml.api/skills@$resolved has no skill $name"
 	done
 
 	for target in $targets; do
@@ -352,7 +352,7 @@ USAGE
 
 	if [ -z "$dry_run" ]; then
 		say ""
-		say "@aimlapi/skills $resolved is in place. Restart your agent (or start a new session) so it loads the skills."
+		say "@ai-ml.api/skills $resolved is in place. Restart your agent (or start a new session) so it loads the skills."
 		say "Scripts and examples read your key from AIMLAPI_API_KEY."
 	fi
 }

@@ -28,7 +28,7 @@ import uuid
 
 API = "https://api.aimlapi.com"
 # A named User-Agent shows which requests come from these skills; it is not needed for access.
-CLIENT = "aimlapi-skills/1.0.0 batch.py"
+CLIENT = "aimlapi-skills/1.0.1 batch.py"
 ENDPOINT = "/v1/chat/completions"
 SINGLE_REQUEST_MAX = 50 * 1024 * 1024   # above this, use the parts upload
 PART_SIZE = 8 * 1024 * 1024              # every part but the last must be at least 5 MiB
