@@ -173,7 +173,9 @@ function Invoke-SkillsInstall([string[]]$Agent, [string]$Scope, [string]$Dir, [b
   if ($Dir) {
     $targets = @([IO.Path]::GetFullPath((Join-Path (Get-Location).ProviderPath $Dir)))
   } else {
-    $base = if ($Scope -eq 'user') { $HOME } else { Get-SkillsProjectRoot }
+    # USERPROFILE on Windows, HOME elsewhere; $HOME only as a last resort (pwsh on Linux fixes it at startup).
+    $userHome = if ($env:USERPROFILE) { $env:USERPROFILE } elseif ($env:HOME) { $env:HOME } else { $HOME }
+    $base = if ($Scope -eq 'user') { $userHome } else { Get-SkillsProjectRoot }
     foreach ($a in $agents) {
       $t = Join-Path $base (Get-SkillsAgentDir $a $Scope)
       if ($targets -notcontains $t) { $targets += $t }
