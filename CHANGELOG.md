@@ -4,6 +4,13 @@ All notable changes to this repository. Versions follow [semver](https://semver.
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-11-23
+
+### Added
+
+- Gemini CLI extension: `gemini-extension.json` and `GEMINI.md` at the root, so `gemini extensions install https://github.com/aimlapi/skills` installs the skills and asks for `AIMLAPI_API_KEY` once.
+- README: install with Gemini CLI and with `npx skills add aimlapi/skills`.
+
 ## [1.0.1] - 2026-11-23
 
 ### Fixed

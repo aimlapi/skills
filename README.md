@@ -43,6 +43,20 @@ npx @ai-ml.api/skills install
 
 This installs every skill into the current repository for Claude Code. Choose the agent with `--agent cursor` (or `codex`, `gemini`, `opencode`, `copilot`, `universal`), install for every project with `--scope user`, or name the skills you want: `npx @ai-ml.api/skills install aimlapi-models aimlapi-chat`. Run the same command again to update. `npx @ai-ml.api/skills list` shows what is in the package.
 
+### Gemini CLI
+
+```bash
+gemini extensions install https://github.com/aimlapi/skills
+```
+
+Gemini CLI asks for your AI/ML API key once and keeps it in the system keychain. `gemini extensions update aimlapi` gets a new version.
+
+### skills.sh
+
+```bash
+npx skills add aimlapi/skills
+```
+
 ### GitHub CLI (any agent)
 
 Requires [GitHub CLI](https://cli.github.com/) 2.90 or later.

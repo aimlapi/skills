@@ -33,7 +33,7 @@ import uuid
 
 API = "https://api.aimlapi.com"
 # A named User-Agent shows which requests come from these skills; it is not needed for access.
-CLIENT = "aimlapi-skills/1.0.1 speech.py"
+CLIENT = "aimlapi-skills/1.0.2 speech.py"
 
 PENDING = {"queued", "pending", "waiting", "active", "generating", "processing", "in_progress"}
 SUCCESS = {"completed", "succeeded"}
