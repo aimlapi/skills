@@ -1,0 +1,43 @@
+name: Nightly drift check
+
+# Catches the API moving under the skills: a route removed from the public description,
+# a model id retired, a response shape that no longer parses.
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Routes and model ids against the live API
+        run: python3 tools/check.py --live
+
+      - name: Install the SDKs the examples use
+        run: python3 -m pip install --quiet openai anthropic
+
+      - name: Catalogue, scripts and SDK examples in sandbox
+        env:
+          AIMLAPI_LIVE_TESTS: "1"
+          # A sandbox key: it can never start a paid request.
+          AIMLAPI_API_KEY: ${{ secrets.AIMLAPI_SANDBOX_KEY }}
+        run: python3 -m unittest tests.test_live tests.test_sdk_examples -v
+
+      - name: Open an issue on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Nightly drift check failed ($(date -u +%F))"
+          if ! gh issue list --label drift --state open --search "in:title Nightly drift check failed" --json number --jq '.[0].number' | grep -q .; then
+            gh issue create --title "$title" --label drift \
+              --body "The nightly check against the live API failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          fi

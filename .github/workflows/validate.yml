@@ -1,0 +1,71 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      GH_VERSION: 2.103.3
+      GITLEAKS_VERSION: 8.30.1
+      # sha256 of gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz from the release page
+      GITLEAKS_SHA256: 551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0 # gitleaks scans every commit, not only the tip
+
+      - name: Secret scan (gitleaks, whole history)
+        run: |
+          set -euo pipefail
+          tarball="gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          curl -fsSL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/$tarball" -o "$RUNNER_TEMP/$tarball"
+          echo "${GITLEAKS_SHA256}  $RUNNER_TEMP/$tarball" | sha256sum -c -
+          tar -xzf "$RUNNER_TEMP/$tarball" -C "$RUNNER_TEMP" gitleaks
+          "$RUNNER_TEMP/gitleaks" git --no-banner --redact --exit-code 1 --config .gitleaks.toml .
+
+      - name: Repository checks
+        run: python3 tools/check.py
+
+      - name: Script unit tests (Python)
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Script unit tests (Node)
+        run: node --test 'tests/*.test.mjs'
+
+      - name: npm package contents
+        run: |
+          set -euo pipefail
+          npm pack --dry-run --json > "$RUNNER_TEMP/pack.json"
+          python3 - "$RUNNER_TEMP/pack.json" <<'PY'
+          import json, sys
+          files = [f["path"] for f in json.load(open(sys.argv[1]))[0]["files"]]
+          bad = [f for f in files if not f.startswith(("bin/", "skills/")) and f not in ("README.md", "LICENSE", "package.json")]
+          bad += [f for f in files if "__pycache__" in f or f.endswith((".pyc", ".DS_Store"))]
+          assert not bad, f"unexpected files in the npm package: {bad}"
+          assert "bin/aimlapi-skills.mjs" in files, "installer missing"
+          print(f"{len(files)} files in the package")
+          PY
+
+      - name: Install pinned GitHub CLI
+        run: |
+          set -euo pipefail
+          tarball="gh_${GH_VERSION}_linux_amd64.tar.gz"
+          base="https://github.com/cli/cli/releases/download/v${GH_VERSION}"
+          curl -fsSL "$base/$tarball" -o "$RUNNER_TEMP/$tarball"
+          curl -fsSL "$base/gh_${GH_VERSION}_checksums.txt" -o "$RUNNER_TEMP/checksums.txt"
+          (cd "$RUNNER_TEMP" && grep "  ${tarball}$" checksums.txt | sha256sum -c -)
+          tar -xzf "$RUNNER_TEMP/$tarball" -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/gh_${GH_VERSION}_linux_amd64/bin" >> "$GITHUB_PATH"
+
+      # The same parser and checks `gh skill install` uses.
+      - name: gh skill publish --dry-run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh skill publish --dry-run .

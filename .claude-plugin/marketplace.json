@@ -1,0 +1,19 @@
+{
+  "$schema": "https://code.claude.com/schemas/marketplace.json",
+  "name": "aimlapi",
+  "owner": {
+    "name": "AI/ML API",
+    "url": "https://aimlapi.com"
+  },
+  "metadata": {
+    "description": "Agent skills for building on AI/ML API",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "aimlapi",
+      "source": "./",
+      "description": "Skills for AI/ML API, one API for 10,000+ AI models and tools: choosing models, chat on any protocol, images, video and audio jobs, speech, decision models, webhooks, batches, errors, costs and sandbox testing"
+    }
+  ]
+}

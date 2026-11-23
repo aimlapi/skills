@@ -1,0 +1,49 @@
+# Every API route a skill or script may name.
+# <path>  <state>  <source>
+#   state:  live     - must exist today; checked nightly
+#           preview  - used only under preview/; not checked until released
+#   source: openapi  - in https://api.aimlapi.com/docs-yaml
+#           <url>    - the public docs page that documents it (must mention the path)
+# Path parameters are written {}.
+
+/v1                                  live     https://docs.aimlapi.com/quickstart/supported-sdks.md
+/v1/chat/completions                 live     openapi
+/v1/responses                        live     openapi
+/v1/responses/{}                     live     openapi
+/v1/messages                         live     openapi
+/v1/embeddings                       live     openapi
+/v1/images/generations               live     openapi
+/v1/images/edits                     live     openapi
+/v1/tts                              live     openapi
+/v1/stt/create                       live     openapi
+/v1/stt/{}                           live     openapi
+/v1/ocr                              live     openapi
+/v1/decisions                        live     openapi
+/v2/video/generations                live     openapi
+/v2/generate/audio                   live     openapi
+/v1/batches                          live     openapi
+/v1/models                           live     https://docs.aimlapi.com/api-references/service-endpoints/complete-model-list.md
+/v1/models/deprecations              live     https://docs.aimlapi.com/api-references/service-endpoints/model-deprecations.md
+/models/metrics                      live     https://docs.aimlapi.com/api-references/service-endpoints/model-metrics.md
+/model/{}                            live     https://docs.aimlapi.com/api-references/service-endpoints/complete-model-list.md
+/v1/keys                             live     https://docs.aimlapi.com/capabilities/sandbox-mode.md
+/v2/usage                            live     https://docs.aimlapi.com/api-references/service-endpoints/api-key-usage.md
+/v2/usage/detail                     live     https://docs.aimlapi.com/api-references/service-endpoints/api-key-usage.md
+/v2/logs                             live     https://docs.aimlapi.com/api-references/service-endpoints/usage-logs.md
+/v2/billing                          live     https://docs.aimlapi.com/api-references/service-endpoints/account-balance.md
+/v2/billing/transactions             live     https://docs.aimlapi.com/api-references/service-endpoints/account-balance.md
+
+/v1/files                            live     https://docs.aimlapi.com/capabilities/batch-processing.md
+/v1/files/{}                         live     https://docs.aimlapi.com/capabilities/batch-processing.md
+/v1/files/{}/content                 live     https://docs.aimlapi.com/capabilities/batch-processing.md
+/v1/uploads                          live     https://docs.aimlapi.com/capabilities/batch-processing.md
+/v1/uploads/{}/parts                 live     https://docs.aimlapi.com/capabilities/batch-processing.md
+/v1/uploads/{}/complete              live     https://docs.aimlapi.com/capabilities/batch-processing.md
+/v1/uploads/{}/cancel                live     https://docs.aimlapi.com/capabilities/batch-processing.md
+/v1/batches/{}                       live     https://docs.aimlapi.com/capabilities/batch-processing.md
+/v1/batches/{}/cancel                live     https://docs.aimlapi.com/capabilities/batch-processing.md
+/v1/webhooks                         live     https://docs.aimlapi.com/capabilities/webhooks.md
+/v1/webhooks/secret                  live     https://docs.aimlapi.com/capabilities/webhooks.md
+/v1/webhooks/events                  live     https://docs.aimlapi.com/capabilities/webhooks.md
+/v1/webhooks/events/{}               live     https://docs.aimlapi.com/capabilities/webhooks.md
+/v1/webhooks/events/{}/retry         live     https://docs.aimlapi.com/capabilities/webhooks.md

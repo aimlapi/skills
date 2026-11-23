@@ -1,0 +1,42 @@
+{
+  "name": "@aimlapi/skills",
+  "version": "1.0.0",
+  "description": "Agent skills for AI/ML API: install them into Claude Code, Cursor, Codex, Gemini CLI, OpenCode or Copilot",
+  "license": "Apache-2.0",
+  "author": "AI/ML API (https://aimlapi.com)",
+  "homepage": "https://github.com/aimlapi/skills#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aimlapi/skills.git"
+  },
+  "bugs": "https://github.com/aimlapi/skills/issues",
+  "keywords": [
+    "aimlapi",
+    "agent-skills",
+    "claude-code",
+    "cursor",
+    "codex",
+    "llm",
+    "openai-compatible"
+  ],
+  "type": "module",
+  "bin": {
+    "aimlapi-skills": "bin/aimlapi-skills.mjs"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "!**/__pycache__/",
+    "!**/*.pyc",
+    "!**/.DS_Store",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

@@ -1,0 +1,11 @@
+# gitleaks config: the default rules, plus the published Standard Webhooks
+# test vector that the webhook tests use on purpose.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Standard Webhooks specification test vector (public)"
+regexes = [
+  '''MfKQ9r8GKYqrTwjUPD8ILPZIo2LaLaSw''',
+  '''g0hM9SsE\+OTPJTGt/tmIKtSyZlE3uFJELVlNIOLJ1OE=''',
+]
