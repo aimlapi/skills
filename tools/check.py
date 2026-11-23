@@ -30,7 +30,7 @@ TEXT_SUFFIXES = {".md", ".py", ".mjs", ".js", ".ts", ".json", ".yaml", ".yml", "
 ALLOWED_HOSTS = {
     "api.aimlapi.com", "docs.aimlapi.com", "mcp.aimlapi.com", "aimlapi.com", "cdn.aimlapi.com", "help.aimlapi.com",
     "github.com", "cli.github.com", "agentskills.io", "code.claude.com", "platform.openai.com",
-    "nodejs.org", "docs.npmjs.com", "registry.npmjs.org", "www.npmjs.com", "semver.org", "developercertificate.org", "www.apache.org",
+    "nodejs.org", "docs.npmjs.com", "registry.npmjs.org", "www.npmjs.com", "antigravity.google", "semver.org", "developercertificate.org", "www.apache.org",
     "example.com",
 }
 # (pattern, why) - anything that must never be published from this repository.
@@ -52,7 +52,7 @@ BANNED = [
 EXCEPTIONS = {
     "tools/check.py": {"*"},
     "AGENTS.md": {"localhost"},
-    "bin/aimlapi-skills.mjs": {".claude/skills"},  # Claude Code's own skills folder, the install target
+    "cli/aimlapi-skills.mjs": {".claude/skills"},  # Claude Code's own skills folder, the install target
     "install/install.sh": {".claude/skills"},
     "tests/test_installers.py": {".claude/skills"},
 }
@@ -115,6 +115,8 @@ def repo_version() -> str:
         ".cursor-plugin/marketplace.json": json.loads((ROOT / ".cursor-plugin/marketplace.json").read_text())["metadata"]["version"],
         "package.json": json.loads((ROOT / "package.json").read_text())["version"],
         "gemini-extension.json": json.loads((ROOT / "gemini-extension.json").read_text())["version"],
+        ".codex-plugin/plugin.json": json.loads((ROOT / ".codex-plugin/plugin.json").read_text())["version"],
+        ".antigravity-plugin/plugin.json": json.loads((ROOT / ".antigravity-plugin/plugin.json").read_text())["version"],
     }
     if len(set(versions.values())) != 1:
         fail("versions", f"manifests disagree: {versions}")

@@ -1,12 +1,12 @@
 {
   "name": "aimlapi",
   "description": "Skills for AI/ML API, one API for 10,000+ AI models and tools: choosing models, chat on any protocol, images, video and audio jobs, speech, decision models, webhooks, batches, errors, costs and sandbox testing",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": {
     "name": "AI/ML API",
     "url": "https://aimlapi.com"
   },
-  "homepage": "https://docs.aimlapi.com",
+  "homepage": "https://docs.aimlapi.com/quickstart/agent-skills",
   "repository": "https://github.com/aimlapi/skills",
   "license": "Apache-2.0",
   "keywords": [
@@ -21,5 +21,10 @@
     "sandbox",
     "webhooks",
     "batch-api"
-  ]
+  ],
+  "icon": "./assets/logo.png",
+  "documentationUrl": "https://docs.aimlapi.com/quickstart/agent-skills",
+  "supportUrl": "https://help.aimlapi.com",
+  "privacyPolicyUrl": "https://aimlapi.com/privacy-policy",
+  "termsOfServiceUrl": "https://aimlapi.com/terms-and-conditions"
 }

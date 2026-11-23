@@ -52,10 +52,10 @@ jobs:
           python3 - "$RUNNER_TEMP/pack.json" <<'PY'
           import json, sys
           files = [f["path"] for f in json.load(open(sys.argv[1]))[0]["files"]]
-          bad = [f for f in files if not f.startswith(("bin/", "skills/")) and f not in ("README.md", "LICENSE", "package.json")]
+          bad = [f for f in files if not f.startswith(("cli/", "skills/")) and f not in ("README.md", "LICENSE", "package.json")]
           bad += [f for f in files if "__pycache__" in f or f.endswith((".pyc", ".DS_Store"))]
           assert not bad, f"unexpected files in the npm package: {bad}"
-          assert "bin/aimlapi-skills.mjs" in files, "installer missing"
+          assert "cli/aimlapi-skills.mjs" in files, "installer missing"
           print(f"{len(files)} files in the package")
           PY
 

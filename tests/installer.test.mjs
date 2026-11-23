@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { existsSync, mkdirSync, mkdtempSync, readdirSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { AGENTS, install, parseArgs, readSkills, targets } from "../bin/aimlapi-skills.mjs";
+import { AGENTS, install, parseArgs, readSkills, targets } from "../cli/aimlapi-skills.mjs";
 
 const quiet = () => {};
 
