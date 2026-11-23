@@ -161,9 +161,11 @@ class InstallPs1(Base):
         self.assertEqual(self.installed(self.project, ".claude/skills"), SKILLS)
 
     def test_user_scope_cursor_one_skill(self):
-        r = self.run_ps("-Agent", "cursor", "-Scope", "user", "aimlapi-chat")
+        r = self.run_ps("aimlapi-chat", "-Agent", "cursor", "-Scope", "user", "aimlapi-costs")
         self.assertEqual(r.returncode, 0, (r.stdout + r.stderr).decode())
-        self.assertEqual(self.installed(self.home, ".cursor/skills"), ["aimlapi-chat"])
+        self.assertEqual(self.installed(self.home, ".cursor/skills"), ["aimlapi-chat", "aimlapi-costs"],
+                         (r.stdout + r.stderr).decode())
+        self.assertFalse((self.project / "src" / "aimlapi-chat").exists())  # a bare word is never -Dir
 
     def test_bad_integrity_writes_nothing(self):
         bad = FakeRegistry(self.tarball, integrity_of=b"something else")

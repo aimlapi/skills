@@ -27,6 +27,8 @@
 # the last line, so a truncated download runs nothing. Keep this file ASCII:
 # Windows PowerShell 5.1 reads a BOM-less script in the ANSI code page.
 
+# No positional binding: bare words are skill names, never -Agent or -Dir.
+[CmdletBinding(PositionalBinding = $false)]
 param(
   [string[]]$Agent = @(),
   [string]$Scope = 'project',
