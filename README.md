@@ -31,17 +31,17 @@ Windows (PowerShell):
 irm https://aimlapi.com/skills/install.ps1 | iex
 ```
 
-Both install every skill into the current repository for Claude Code. They download the `@aimlapi/skills` package from npm and check its sha512 before writing anything. Options go after `sh -s --`, for example `curl -fsSL https://aimlapi.com/skills/install.sh | sh -s -- --agent cursor --scope user aimlapi-models`.
+Both install every skill into the current repository for Claude Code. They download the `@ai-ml.api/skills` package from npm and check its sha512 before writing anything. Options go after `sh -s --`, for example `curl -fsSL https://aimlapi.com/skills/install.sh | sh -s -- --agent cursor --scope user aimlapi-models`.
 
 ### npm (any agent)
 
 Requires Node.js 18 or later.
 
 ```bash
-npx @aimlapi/skills install
+npx @ai-ml.api/skills install
 ```
 
-This installs every skill into the current repository for Claude Code. Choose the agent with `--agent cursor` (or `codex`, `gemini`, `opencode`, `copilot`, `universal`), install for every project with `--scope user`, or name the skills you want: `npx @aimlapi/skills install aimlapi-models aimlapi-chat`. Run the same command again to update. `npx @aimlapi/skills list` shows what is in the package.
+This installs every skill into the current repository for Claude Code. Choose the agent with `--agent cursor` (or `codex`, `gemini`, `opencode`, `copilot`, `universal`), install for every project with `--scope user`, or name the skills you want: `npx @ai-ml.api/skills install aimlapi-models aimlapi-chat`. Run the same command again to update. `npx @ai-ml.api/skills list` shows what is in the package.
 
 ### GitHub CLI (any agent)
 

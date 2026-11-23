@@ -4,7 +4,7 @@ description: "Use when many chat-completion requests can wait hours and should c
 license: Apache-2.0
 compatibility: Needs network access to api.aimlapi.com and AIMLAPI_API_KEY in the environment. Script needs python3 3.9+.
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   docs: https://docs.aimlapi.com/capabilities/batch-processing.md
 ---
 

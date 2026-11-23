@@ -40,7 +40,7 @@ jobs:
             install/install.sh install/install.ps1
 
       # Provenance needs a public repository; until then, and without the secret, this step only says why it skipped.
-      - name: Publish @aimlapi/skills to npm
+      - name: Publish @ai-ml.api/skills to npm
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           PRIVATE_REPO: ${{ github.event.repository.private }}

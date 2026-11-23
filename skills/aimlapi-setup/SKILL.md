@@ -4,7 +4,7 @@ description: "Use when a coding agent (Claude Code, Codex, OpenCode, Cline, Open
 license: Apache-2.0
 compatibility: Needs Node.js 18+, npm, network access to aimlapi.com, and a shell the agent can run commands in.
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   docs: https://docs.aimlapi.com/quickstart/cli/aimlapi-setup.md
 ---
 

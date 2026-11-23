@@ -47,9 +47,9 @@ class FakeRegistry:
             def do_GET(self):
                 if self.path.endswith(".tgz"):
                     body, ctype = tarball, "application/octet-stream"
-                elif self.path in ("/@aimlapi%2fskills/latest", f"/@aimlapi%2fskills/{VERSION}"):
-                    body = json.dumps({"name": "@aimlapi/skills", "version": VERSION, "dist": {
-                        "tarball": f"{outer.url}/@aimlapi/skills/-/skills-{VERSION}.tgz",
+                elif self.path in ("/@ai-ml.api%2fskills/latest", f"/@ai-ml.api%2fskills/{VERSION}"):
+                    body = json.dumps({"name": "@ai-ml.api/skills", "version": VERSION, "dist": {
+                        "tarball": f"{outer.url}/@ai-ml.api/skills/-/skills-{VERSION}.tgz",
                         "integrity": f"sha512-{digest}"}}).encode()
                     ctype = "application/json"
                 else:

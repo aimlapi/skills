@@ -6,8 +6,8 @@
 #
 #   & ([scriptblock]::Create((irm https://aimlapi.com/skills/install.ps1))) -Agent cursor -Scope user aimlapi-models
 #
-# The skills come from the public npm package @aimlapi/skills (the same files
-# `npx @aimlapi/skills install` copies). The tarball is checked against the
+# The skills come from the public npm package @ai-ml.api/skills (the same files
+# `npx @ai-ml.api/skills install` copies). The tarball is checked against the
 # registry's sha512 integrity before anything is written. No administrator
 # rights and no Node.js are needed.
 #
@@ -191,12 +191,12 @@ function Invoke-SkillsInstall([string[]]$Agent, [string]$Scope, [string]$Dir, [b
   if (-not $version) { $version = 'latest' }
   $version = $version.TrimStart('v')
   if ($version -notmatch '^[0-9A-Za-z.+-]+$') { throw "invalid AIMLAPI_SKILLS_VERSION: $version" }
-  $metadataUrl = "$registry/@aimlapi%2fskills/$version"
+  $metadataUrl = "$registry/@ai-ml.api%2fskills/$version"
 
   $tmp = Join-Path ([IO.Path]::GetTempPath()) ("aimlapi-skills-" + [Guid]::NewGuid().ToString('N'))
   [void][IO.Directory]::CreateDirectory($tmp)
   try {
-    Write-SkillsMessage "Fetching @aimlapi/skills@$version from $registry"
+    Write-SkillsMessage "Fetching @ai-ml.api/skills@$version from $registry"
     $metadata = Invoke-RestMethod -Uri $metadataUrl -UseBasicParsing -Headers @{ Accept = 'application/json' }
     $resolved = [string]$metadata.version
     $tarball = [string]$metadata.dist.tarball
@@ -207,7 +207,7 @@ function Invoke-SkillsInstall([string[]]$Agent, [string]$Scope, [string]$Dir, [b
     foreach ($hash in ([string]$metadata.dist.integrity).Split(' ')) {
       if ($hash.StartsWith('sha512-')) { $sha512 = $hash.Substring(7); break }
     }
-    if (-not $sha512) { throw "the registry gave no sha512 integrity for @aimlapi/skills@$resolved; refusing to install" }
+    if (-not $sha512) { throw "the registry gave no sha512 integrity for @ai-ml.api/skills@$resolved; refusing to install" }
 
     $tgz = Join-Path $tmp 'package.tgz'
     Invoke-WebRequest -Uri $tarball -OutFile $tgz -UseBasicParsing
@@ -220,7 +220,7 @@ function Invoke-SkillsInstall([string[]]$Agent, [string]$Scope, [string]$Dir, [b
     $all = @(Get-ChildItem -LiteralPath $src -Directory | Where-Object { Test-Path (Join-Path $_.FullName 'SKILL.md') } | ForEach-Object { $_.Name } | Sort-Object)
     $names = if ($Skill.Count -gt 0) { $Skill } else { $all }
     foreach ($name in $names) {
-      if ($all -notcontains $name) { throw "@aimlapi/skills@$resolved has no skill $name" }
+      if ($all -notcontains $name) { throw "@ai-ml.api/skills@$resolved has no skill $name" }
     }
 
     foreach ($target in $targets) {
@@ -240,7 +240,7 @@ function Invoke-SkillsInstall([string[]]$Agent, [string]$Scope, [string]$Dir, [b
     }
     if (-not $DryRun) {
       Write-SkillsMessage ''
-      Write-SkillsMessage "@aimlapi/skills $resolved is in place. Restart your agent (or start a new session) so it loads the skills."
+      Write-SkillsMessage "@ai-ml.api/skills $resolved is in place. Restart your agent (or start a new session) so it loads the skills."
       Write-SkillsMessage 'Scripts and examples read your key from AIMLAPI_API_KEY.'
     }
   } finally {
