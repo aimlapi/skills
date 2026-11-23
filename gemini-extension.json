@@ -1,0 +1,14 @@
+{
+  "name": "aimlapi",
+  "version": "1.0.2",
+  "description": "Agent skills for AI/ML API, one API for 10,000+ AI models and tools: choosing models and prices from the live catalogue, chat on any protocol, images, video, speech, decision models, webhooks, batches, errors, costs and free sandbox testing",
+  "contextFileName": "GEMINI.md",
+  "settings": [
+    {
+      "name": "AI/ML API key",
+      "description": "Read by the skills' scripts and by the code they write, from AIMLAPI_API_KEY. Create a key at https://aimlapi.com/app/keys",
+      "envVar": "AIMLAPI_API_KEY",
+      "sensitive": true
+    }
+  ]
+}

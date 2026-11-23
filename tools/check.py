@@ -114,6 +114,7 @@ def repo_version() -> str:
         ".cursor-plugin/plugin.json": json.loads((ROOT / ".cursor-plugin/plugin.json").read_text())["version"],
         ".cursor-plugin/marketplace.json": json.loads((ROOT / ".cursor-plugin/marketplace.json").read_text())["metadata"]["version"],
         "package.json": json.loads((ROOT / "package.json").read_text())["version"],
+        "gemini-extension.json": json.loads((ROOT / "gemini-extension.json").read_text())["version"],
     }
     if len(set(versions.values())) != 1:
         fail("versions", f"manifests disagree: {versions}")
