@@ -25,12 +25,12 @@ NAME_RE = re.compile(r"^aimlapi-[a-z0-9]+(-[a-z0-9]+)*$")
 MAX_SKILL_LINES = 300
 MAX_SKILL_WORDS = 900
 MAX_DESCRIPTION = 500
-TEXT_SUFFIXES = {".md", ".py", ".mjs", ".js", ".ts", ".json", ".yaml", ".yml", ".txt", ""}
+TEXT_SUFFIXES = {".md", ".py", ".mjs", ".js", ".ts", ".json", ".yaml", ".yml", ".txt", ".sh", ".ps1", ".toml", ""}
 
 ALLOWED_HOSTS = {
     "api.aimlapi.com", "docs.aimlapi.com", "mcp.aimlapi.com", "aimlapi.com", "cdn.aimlapi.com", "help.aimlapi.com",
     "github.com", "cli.github.com", "agentskills.io", "code.claude.com", "platform.openai.com",
-    "nodejs.org", "docs.npmjs.com", "semver.org", "developercertificate.org", "www.apache.org",
+    "nodejs.org", "docs.npmjs.com", "registry.npmjs.org", "www.npmjs.com", "semver.org", "developercertificate.org", "www.apache.org",
     "example.com",
 }
 # (pattern, why) - anything that must never be published from this repository.
@@ -53,6 +53,8 @@ EXCEPTIONS = {
     "tools/check.py": {"*"},
     "AGENTS.md": {"localhost"},
     "bin/aimlapi-skills.mjs": {".claude/skills"},  # Claude Code's own skills folder, the install target
+    "install/install.sh": {".claude/skills"},
+    "tests/test_installers.py": {".claude/skills"},
 }
 
 ROUTE_RE = re.compile(r"(?<![\w.$])/(?:v\d+(?:/[A-Za-z0-9_.{}<>:()\['\]-]+)*|model/[A-Za-z0-9_{}<>:./()\['\]-]+|models/metrics\b)")

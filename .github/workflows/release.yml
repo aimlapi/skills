@@ -35,7 +35,9 @@ jobs:
         run: |
           version="${GITHUB_REF_NAME#v}"
           awk -v v="$version" '$0 ~ "^## \\[" v "\\]" {on=1; next} on && /^## \[/ {exit} on' CHANGELOG.md > "$RUNNER_TEMP/notes.md"
-          gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --notes-file "$RUNNER_TEMP/notes.md"
+          # The install scripts are release assets: aimlapi.com/skills/install.{sh,ps1} serves the latest release's copy.
+          gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --notes-file "$RUNNER_TEMP/notes.md" \
+            install/install.sh install/install.ps1
 
       # Provenance needs a public repository; until then, and without the secret, this step only says why it skipped.
       - name: Publish @aimlapi/skills to npm

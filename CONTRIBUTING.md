@@ -55,4 +55,4 @@ One version for the whole repository (semver), kept in `.claude-plugin/plugin.js
 - **minor**: a new skill or a new section
 - **patch**: wording and fixes
 
-Move a skill out of `preview/` only after its feature is live for every customer. Tag `vX.Y.Z` on `main` and add the entry to [CHANGELOG.md](CHANGELOG.md); the release workflow creates the GitHub release and publishes `@aimlapi/skills` to npm with provenance (it needs the `NPM_TOKEN` secret and a public repository).
+Move a skill out of `preview/` only after its feature is live for every customer. Tag `vX.Y.Z` on `main` and add the entry to [CHANGELOG.md](CHANGELOG.md); the release workflow creates the GitHub release (with `install/install.sh` and `install/install.ps1` attached; aimlapi.com/skills/install.* serves them) and publishes `@aimlapi/skills` to npm with provenance (it needs the `NPM_TOKEN` secret and a public repository).
