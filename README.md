@@ -51,6 +51,18 @@ gemini extensions install https://github.com/aimlapi/skills
 
 Gemini CLI asks for your AI/ML API key once and keeps it in the system keychain. `gemini extensions update aimlapi` gets a new version.
 
+### Codex
+
+```bash
+codex plugin marketplace add aimlapi/skills
+```
+
+### Antigravity
+
+```bash
+agy plugin install https://github.com/aimlapi/skills
+```
+
 ### skills.sh
 
 ```bash
@@ -111,6 +123,10 @@ Agents load a skill on their own when your request matches its description.
 - Scripts need only `curl`, `python3` (3.9+, standard library) or `node` (18+). Nothing to `npm install` or `pip install`.
 
 The catalogue and deprecation feed need no key.
+
+## Your key and your data
+
+The skills hold no key and collect nothing. Their scripts and the code they write read your key from `AIMLAPI_API_KEY` and send it only to AI/ML API (`api.aimlapi.com`), in the `Authorization` header of the requests you ask for. Result files are downloaded from the links the API returns, without the key. The model catalogue, prices and live speed are read without a key. Nothing is sent anywhere else, and no telemetry is collected. See the [privacy policy](https://aimlapi.com/privacy-policy).
 
 ## How the skills are written
 

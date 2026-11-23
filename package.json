@@ -1,6 +1,6 @@
 {
   "name": "@ai-ml.api/skills",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Agent skills for AI/ML API: install them into Claude Code, Cursor, Codex, Gemini CLI, OpenCode or Copilot",
   "license": "Apache-2.0",
   "author": "AI/ML API (https://aimlapi.com)",
@@ -21,10 +21,10 @@
   ],
   "type": "module",
   "bin": {
-    "aimlapi-skills": "bin/aimlapi-skills.mjs"
+    "aimlapi-skills": "cli/aimlapi-skills.mjs"
   },
   "files": [
-    "bin/",
+    "cli/",
     "skills/",
     "!**/__pycache__/",
     "!**/*.pyc",

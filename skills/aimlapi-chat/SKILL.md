@@ -4,7 +4,7 @@ description: "Use when calling AI/ML API (aimlapi) text models from code: moving
 license: Apache-2.0
 compatibility: Needs network access to api.aimlapi.com and AIMLAPI_API_KEY in the environment.
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
   docs: https://docs.aimlapi.com/quickstart/supported-sdks.md
 ---
 

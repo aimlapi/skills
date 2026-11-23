@@ -1,6 +1,6 @@
 {
   "name": "aimlapi",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Agent skills for AI/ML API, one API for 10,000+ AI models and tools: choosing models and prices from the live catalogue, chat on any protocol, images, video, speech, decision models, webhooks, batches, errors, costs and free sandbox testing",
   "contextFileName": "GEMINI.md",
   "settings": [

@@ -4,6 +4,18 @@ All notable changes to this repository. Versions follow [semver](https://semver.
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-11-23
+
+### Added
+
+- Plugin manifests for Codex (`.codex-plugin/plugin.json`) and Antigravity (`.antigravity-plugin/plugin.json`), and an AI/ML API logo (`assets/logo.png`) in the Claude Code, Cursor, Codex and Antigravity manifests.
+- Directory listing details in the Claude Code plugin: documentation, support, privacy policy and terms links.
+- README: install with Codex and Antigravity, and what the skills do with your key.
+
+### Changed
+
+- The npm installer moved from `bin/` to `cli/`, so the Claude plugin root has no `bin/` folder (claude.ai and Cowork don't install a plugin that has one). `npx @ai-ml.api/skills` works as before.
+
 ## [1.0.2] - 2026-11-23
 
 ### Added
