@@ -17,6 +17,22 @@ Works with Claude Code, Cursor, Codex, OpenCode, Gemini CLI, Windsurf and any ot
 
 Claude Code updates third-party marketplaces only when you turn it on: `/plugin` → **Marketplaces** → `aimlapi` → auto-update. Otherwise run `/plugin marketplace update aimlapi` to get a new version.
 
+### One command, no Node.js
+
+macOS and Linux:
+
+```bash
+curl -fsSL https://aimlapi.com/skills/install.sh | sh
+```
+
+Windows (PowerShell):
+
+```powershell
+irm https://aimlapi.com/skills/install.ps1 | iex
+```
+
+Both install every skill into the current repository for Claude Code. They download the `@aimlapi/skills` package from npm and check its sha512 before writing anything. Options go after `sh -s --`, for example `curl -fsSL https://aimlapi.com/skills/install.sh | sh -s -- --agent cursor --scope user aimlapi-models`.
+
 ### npm (any agent)
 
 Requires Node.js 18 or later.

@@ -33,8 +33,14 @@ jobs:
       - name: Repository checks
         run: python3 tools/check.py
 
+      - name: Lint install.sh
+        run: shellcheck -s sh install/install.sh
+
+      # Includes install.sh and install.ps1 against a local fake npm registry (pwsh is on the runner).
       - name: Script unit tests (Python)
-        run: python3 -m unittest discover -s tests -v
+        run: |
+          command -v pwsh >/dev/null || { echo "pwsh missing: the install.ps1 tests would be skipped" >&2; exit 1; }
+          python3 -m unittest discover -s tests -v
 
       - name: Script unit tests (Node)
         run: node --test 'tests/*.test.mjs'
