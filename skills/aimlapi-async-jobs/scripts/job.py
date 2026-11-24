@@ -26,7 +26,7 @@ import urllib.request
 
 API = "https://api.aimlapi.com"
 # A named User-Agent shows which requests come from these skills; it is not needed for access.
-CLIENT = "aimlapi-skills/1.0.4 job.py"
+CLIENT = "aimlapi-skills/1.0.5 job.py"
 
 KINDS = {
     #          submit path              poll URL builder                                  default interval

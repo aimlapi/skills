@@ -8,7 +8,7 @@ Cost per call, tracing, usage and spend reports.
 gh skill install aimlapi/skills aimlapi-costs
 ```
 
-Or install every skill: see the [root README](../../README.md#install).
+Or install every skill: see the [root README](https://github.com/aimlapi/skills#install).
 
 ## What it covers
 

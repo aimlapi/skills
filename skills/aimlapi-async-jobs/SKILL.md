@@ -4,7 +4,7 @@ description: "Use when generating video or music, or running a background Respon
 license: Apache-2.0
 compatibility: Needs network access to api.aimlapi.com and AIMLAPI_API_KEY in the environment. Script needs python3 3.9+.
 metadata:
-  version: "1.0.4"
+  version: "1.0.5"
   docs: https://docs.aimlapi.com/api-references/video-models.md
 ---
 

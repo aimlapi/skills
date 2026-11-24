@@ -8,7 +8,7 @@ Receive results by signed webhook.
 gh skill install aimlapi/skills aimlapi-webhooks
 ```
 
-Or install every skill: see the [root README](../../README.md#install).
+Or install every skill: see the [root README](https://github.com/aimlapi/skills#install).
 
 ## What it covers
 

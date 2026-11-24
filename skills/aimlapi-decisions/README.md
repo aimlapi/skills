@@ -8,7 +8,7 @@ Typed answers with calibrated probabilities from decision models, and routers th
 gh skill install aimlapi/skills aimlapi-decisions
 ```
 
-Or install every skill: see the [root README](../../README.md#install).
+Or install every skill: see the [root README](https://github.com/aimlapi/skills#install).
 
 ## What it covers
 

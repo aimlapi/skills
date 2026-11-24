@@ -4,6 +4,13 @@ All notable changes to this repository. Versions follow [semver](https://semver.
 
 ## [Unreleased]
 
+## [1.0.5] - 2026-11-24
+
+### Fixed
+
+- Skill READMEs link to the repository by full URL, so the links also work in a copy of one skill.
+- `aimlapi-decisions` no longer needs the `aimlapi-sandbox` folder next to it to test a request body: it names the sandbox header.
+
 ## [1.0.4] - 2026-11-24
 
 ### Added

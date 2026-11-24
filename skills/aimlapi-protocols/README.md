@@ -8,7 +8,7 @@ Run any chat model through Chat Completions, Responses or Messages on AI/ML API:
 gh skill install aimlapi/skills aimlapi-protocols
 ```
 
-Or install every skill: see the [root README](../../README.md#install).
+Or install every skill: see the [root README](https://github.com/aimlapi/skills#install).
 
 ## What it covers
 

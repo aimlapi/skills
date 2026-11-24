@@ -4,7 +4,7 @@
   decide.py shape <model-id>        # request shape, question types and limits, media fields
   decide.py judges [<router-id>]    # decision models a router accepts in router.decision_model
 
-Add --json for machine-readable output. Sending a request: python3 ../aimlapi-sandbox/scripts/try.py /v1/decisions '<json>'
+Add --json for machine-readable output. Sending a free test request: POST /v1/decisions with the header X-AIMLAPI-Sandbox: 1.
 """
 
 from __future__ import annotations
@@ -18,7 +18,7 @@ import urllib.request
 
 API = "https://api.aimlapi.com"
 # A named User-Agent shows which requests come from these skills; it is not needed for access.
-CLIENT = "aimlapi-skills/1.0.4 decide.py"
+CLIENT = "aimlapi-skills/1.0.5 decide.py"
 DECISIONS = "internal/decisions"
 CHAT = "openai/chat-completions"
 MEDIA_FIELDS = ("images", "assets", "videos", "audios", "media")

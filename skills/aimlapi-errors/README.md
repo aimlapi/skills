@@ -8,7 +8,7 @@ Read errors and retry the right ones.
 gh skill install aimlapi/skills aimlapi-errors
 ```
 
-Or install every skill: see the [root README](../../README.md#install).
+Or install every skill: see the [root README](https://github.com/aimlapi/skills#install).
 
 ## What it covers
 

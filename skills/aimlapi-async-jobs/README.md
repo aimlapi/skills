@@ -1,6 +1,6 @@
 # aimlapi-async-jobs
 
-Video and music jobs and background responses: submit, poll, download. Speech is in [aimlapi-speech](../aimlapi-speech/README.md).
+Video and music jobs and background responses: submit, poll, download. Speech is in [aimlapi-speech](https://github.com/aimlapi/skills/tree/main/skills/aimlapi-speech).
 
 ## Install
 
@@ -8,7 +8,7 @@ Video and music jobs and background responses: submit, poll, download. Speech is
 gh skill install aimlapi/skills aimlapi-async-jobs
 ```
 
-Or install every skill: see the [root README](../../README.md#install).
+Or install every skill: see the [root README](https://github.com/aimlapi/skills#install).
 
 ## What it covers
 

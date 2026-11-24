@@ -4,7 +4,7 @@ description: "Use when classifying, routing, moderating, triaging, scoring or ex
 license: Apache-2.0
 compatibility: Needs network access to api.aimlapi.com and AIMLAPI_API_KEY in the environment. The script needs python3 and no key.
 metadata:
-  version: "1.0.4"
+  version: "1.0.5"
   docs: https://docs.aimlapi.com/api-references/decision-models.md
 ---
 
@@ -85,7 +85,7 @@ Read `meta.router` (in a stream, on the last chunk): `bucket`, `reason`, `routed
 
 Decision models charge input tokens, media included; a router adds the judgement to the answering model's charge ([answers](references/answers.md#cost), [routers](references/routers.md#cost)).
 
-Test bodies free: `python3 ../aimlapi-sandbox/scripts/try.py /v1/decisions @body.json` validates against the schema; probabilities are fixed. For routers the sandbox neither checks `router` nor returns `meta.router`: test that live, once, small.
+Test bodies free with the header `X-AIMLAPI-Sandbox: 1` (`aimlapi-sandbox`): it validates against the schema; probabilities are fixed. For routers the sandbox neither checks `router` nor returns `meta.router`: test that live, once, small.
 
 ## Rules
 

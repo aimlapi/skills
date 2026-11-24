@@ -8,7 +8,7 @@ Bulk chat completions through the Batch API.
 gh skill install aimlapi/skills aimlapi-batch
 ```
 
-Or install every skill: see the [root README](../../README.md#install).
+Or install every skill: see the [root README](https://github.com/aimlapi/skills#install).
 
 ## What it covers
 

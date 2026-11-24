@@ -4,7 +4,7 @@ description: "Use when an AI/ML API (aimlapi) job should notify a server instead
 license: Apache-2.0
 compatibility: Needs network access to api.aimlapi.com, AIMLAPI_API_KEY, a management API key for the secret, and a public HTTPS endpoint.
 metadata:
-  version: "1.0.4"
+  version: "1.0.5"
   docs: https://docs.aimlapi.com/capabilities/webhooks.md
 ---
 
