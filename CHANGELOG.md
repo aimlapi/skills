@@ -10,6 +10,7 @@ All notable changes to this repository. Versions follow [semver](https://semver.
 
 - Skill READMEs link to the repository by full URL, so the links also work in a copy of one skill.
 - `aimlapi-decisions` no longer needs the `aimlapi-sandbox` folder next to it to test a request body: it names the sandbox header.
+- `aimlapi-setup`: the links from `references/troubleshooting.md` to `agents.md` point at the right file.
 
 ## [1.0.4] - 2026-11-24
 
