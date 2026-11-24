@@ -4,6 +4,12 @@ All notable changes to this repository. Versions follow [semver](https://semver.
 
 ## [Unreleased]
 
+## [1.0.4] - 2026-11-24
+
+### Added
+
+- Codex marketplace file `.agents/plugins/marketplace.json`, so `codex plugin marketplace add aimlapi/skills` and `codex plugin add aimlapi@aimlapi` install the skills straight from this repository.
+
 ## [1.0.3] - 2026-11-23
 
 ### Added

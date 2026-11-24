@@ -55,7 +55,10 @@ Gemini CLI asks for your AI/ML API key once and keeps it in the system keychain.
 
 ```bash
 codex plugin marketplace add aimlapi/skills
+codex plugin add aimlapi@aimlapi
 ```
+
+Start a new Codex session after installing. `codex plugin marketplace upgrade` gets a new version.
 
 ### Antigravity
 
