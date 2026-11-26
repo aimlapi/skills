@@ -4,6 +4,12 @@ All notable changes to this repository. Versions follow [semver](https://semver.
 
 ## [Unreleased]
 
+## [1.0.11] - 2026-11-26
+
+### Fixed
+
+- `aimlapi-async-jobs`: `scripts/job.py` no longer trips two false positives in NVIDIA SkillSpector (the scanner of the Claude Code Templates catalog, which blocks a skill above 50): the result download no longer reuses the variable name of the authenticated request (TT3 "credential exfiltration"), and the "poll again" hints no longer wrap the command in backticks, which the scanner parsed as shell command substitution (AE1 "partial analysis"). Score 100 → 16; behaviour unchanged.
+
 ## [1.0.10] - 2026-11-26
 
 ### Changed

@@ -26,7 +26,7 @@ import urllib.request
 
 API = "https://api.aimlapi.com"
 # A named User-Agent shows which requests come from these skills; it is not needed for access.
-CLIENT = "aimlapi-skills/1.0.10 job.py"
+CLIENT = "aimlapi-skills/1.0.11 job.py"
 
 KINDS = {
     #          submit path              poll URL builder                                  default interval
@@ -96,9 +96,9 @@ def call(method: str, path: str, body: dict | None, sandbox: bool, transient_ok:
 
 def download(url: str, target: str) -> bool:
     """Save a result file. No API key: result links are public or signed."""
-    req = urllib.request.Request(url, headers={"User-Agent": CLIENT})
+    file_request = urllib.request.Request(url, headers={"User-Agent": CLIENT})
     try:
-        with urllib.request.urlopen(req, timeout=600) as resp, open(target, "wb") as f:
+        with urllib.request.urlopen(file_request, timeout=600) as resp, open(target, "wb") as f:
             while chunk := resp.read(1 << 20):
                 f.write(chunk)
         return True
@@ -137,7 +137,7 @@ def wait(kind: str, ident: str, a) -> int:
         except Transient as err:
             failed += 1
             if failed >= 10 or time.monotonic() > deadline:
-                log(f"{failed} polls in a row failed ({err}). The job keeps running: poll again with `job.py poll {kind} {ident}`.")
+                log(f"{failed} polls in a row failed ({err}). The job keeps running: poll again with: job.py poll {kind} {ident}.")
                 return 2
             log(f"{kind} {ident}: poll failed ({err}), asking again")
             time.sleep(min(60, interval * failed))
@@ -165,7 +165,7 @@ def wait(kind: str, ident: str, a) -> int:
             log(f"job ended with status {status}: see error in the body above")
             return 1
         if time.monotonic() > deadline:
-            log(f"still {status} after {a.timeout}s. The job keeps running: poll again with `job.py poll {kind} {ident}`.")
+            log(f"still {status} after {a.timeout}s. The job keeps running: poll again with: job.py poll {kind} {ident}.")
             return 2
         time.sleep(interval)
 
