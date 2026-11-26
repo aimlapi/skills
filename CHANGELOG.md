@@ -4,11 +4,11 @@ All notable changes to this repository. Versions follow [semver](https://semver.
 
 ## [Unreleased]
 
-## [1.0.8] - 2026-11-26
+## [1.0.9] - 2026-11-26
 
 ### Added
 
-- `.tessl-plugin/plugin.json`: the 13 skills as one plugin, `aimlapi/skills`, in the Tessl registry.
+- `.tessl-plugin/plugin.json`: the 13 skills as one plugin, `aimlapi/skills`, in the Tessl registry. 1.0.7 and 1.0.8 exist only as private Tessl builds and were never tagged.
 
 ### Fixed
 
