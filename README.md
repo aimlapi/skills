@@ -8,6 +8,14 @@ Works with Claude Code, Cursor, Codex, OpenCode, Gemini CLI, Windsurf and any ot
 
 ## Install
 
+### Any agent
+
+```bash
+npx skills add aimlapi/skills
+```
+
+The [skills](https://skills.sh) CLI asks which agent to install for (Claude Code, Cursor, Codex, Gemini CLI, OpenCode and others) and copies the skills into its folder. Requires Node.js 22.20 or later.
+
 ### Claude Code
 
 ```
@@ -64,12 +72,6 @@ Start a new Codex session after installing. `codex plugin marketplace upgrade` g
 
 ```bash
 agy plugin install https://github.com/aimlapi/skills
-```
-
-### skills.sh
-
-```bash
-npx skills add aimlapi/skills
 ```
 
 ### GitHub CLI (any agent)

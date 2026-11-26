@@ -30,7 +30,7 @@ TEXT_SUFFIXES = {".md", ".py", ".mjs", ".js", ".ts", ".json", ".yaml", ".yml", "
 ALLOWED_HOSTS = {
     "api.aimlapi.com", "docs.aimlapi.com", "mcp.aimlapi.com", "aimlapi.com", "cdn.aimlapi.com", "help.aimlapi.com",
     "github.com", "cli.github.com", "agentskills.io", "code.claude.com", "platform.openai.com",
-    "nodejs.org", "docs.npmjs.com", "registry.npmjs.org", "www.npmjs.com", "antigravity.google", "semver.org", "developercertificate.org", "www.apache.org",
+    "nodejs.org", "docs.npmjs.com", "registry.npmjs.org", "www.npmjs.com", "antigravity.google", "skills.sh", "semver.org", "developercertificate.org", "www.apache.org",
     "example.com",
 }
 # (pattern, why) - anything that must never be published from this repository.
