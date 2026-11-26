@@ -21,11 +21,7 @@ Image generation is synchronous: one request, the answer holds the images. The c
 
 ### 1. Pick the model and read its parameters
 
-```bash
-curl -s 'https://api.aimlapi.com/v1/models?type=openai/image-generations&include=pricing'
-```
-
-Then read the model's `info.docsJson` for its parameters. With the `aimlapi-models` skill installed, `models.py params flux/schnell` prints them. Models of type `openai/image-editing` also serve `POST /v1/images/edits`.
+List image models with their prices through the `aimlapi-models` skill (`models.py list --type openai/image-generations`, or `GET /v1/models?type=openai/image-generations&include=pricing`, which needs no key). Then read the model's `info.docsJson` for its parameters: `models.py params flux/schnell` prints them. Models of type `openai/image-editing` also serve `POST /v1/images/edits`.
 
 ### 2. Generate
 
