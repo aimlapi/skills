@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Agent skills for building on AI/ML API",
-    "version": "1.0.6"
+    "version": "1.0.7"
   },
   "plugins": [
     {

@@ -4,7 +4,7 @@ description: "Use when classifying, routing, moderating, triaging, scoring or ex
 license: Apache-2.0
 compatibility: Needs network access to api.aimlapi.com and AIMLAPI_API_KEY in the environment. The script needs python3 and no key.
 metadata:
-  version: "1.0.6"
+  version: "1.0.7"
   docs: https://docs.aimlapi.com/api-references/decision-models.md
 ---
 

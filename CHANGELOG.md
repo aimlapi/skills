@@ -4,6 +4,16 @@ All notable changes to this repository. Versions follow [semver](https://semver.
 
 ## [Unreleased]
 
+## [1.0.7] - 2026-11-26
+
+### Added
+
+- `.tessl-plugin/plugin.json`: the 13 skills as one plugin, `aimlapi/skills`, in the Tessl registry.
+
+### Fixed
+
+- `aimlapi-webhooks`: creating or rotating the signing secret saves the response to `webhook-secret.json` and prints a masked copy, so the `whsec_` value never reaches the agent's context (Tessl's security review rated the old step Medium).
+
 ## [1.0.6] - 2026-11-26
 
 ### Fixed

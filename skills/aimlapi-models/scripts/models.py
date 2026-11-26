@@ -22,7 +22,7 @@ import urllib.request
 
 API = "https://api.aimlapi.com"
 # A named User-Agent shows which requests come from these skills; it is not needed for access.
-CLIENT = "aimlapi-skills/1.0.6 models.py"
+CLIENT = "aimlapi-skills/1.0.7 models.py"
 
 
 def get(path: str, params: dict | None = None) -> dict:

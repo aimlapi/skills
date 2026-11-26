@@ -4,7 +4,7 @@ description: "Use when turning text into speech or transcribing audio through AI
 license: Apache-2.0
 compatibility: Needs network access to api.aimlapi.com and AIMLAPI_API_KEY in the environment. Script needs python3 3.9+.
 metadata:
-  version: "1.0.6"
+  version: "1.0.7"
   docs: https://docs.aimlapi.com/api-references/speech-models.md
 ---
 
