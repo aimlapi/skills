@@ -3,7 +3,7 @@
 
   job.py submit video    --body '{"model": "...", "prompt": "..."}' [--download out.mp4]
   job.py submit music    --body @request.json
-  job.py submit stt      --body '{"model": "...", "url": "https://.../audio.mp3"}'
+  job.py submit stt      --body '{"model": "...", "url": "https://example.com/audio.mp3"}'
   job.py submit response --body '{"model": "...", "input": "..."}'      # sent with background: true
   job.py poll   video <id>
 
@@ -26,7 +26,7 @@ import urllib.request
 
 API = "https://api.aimlapi.com"
 # A named User-Agent shows which requests come from these skills; it is not needed for access.
-CLIENT = "aimlapi-skills/1.0.5 job.py"
+CLIENT = "aimlapi-skills/1.0.6 job.py"
 
 KINDS = {
     #          submit path              poll URL builder                                  default interval

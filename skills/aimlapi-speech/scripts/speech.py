@@ -3,7 +3,7 @@
 
   speech.py tts  --body '{"model": "...", "text": "..."}' --out speech.mp3
   speech.py tts  --body @request.json --out speech.mp3
-  speech.py stt  --model <id> --url https://.../meeting.mp3 [--body '{"language": "en"}']
+  speech.py stt  --model <id> --url https://example.com/meeting.mp3 [--body '{"language": "en"}']
   speech.py stt  --model <id> --file meeting.mp3 [--field audio|file] [--out answer.json]
   speech.py poll <generation_id> [--out answer.json]
 
@@ -33,7 +33,7 @@ import uuid
 
 API = "https://api.aimlapi.com"
 # A named User-Agent shows which requests come from these skills; it is not needed for access.
-CLIENT = "aimlapi-skills/1.0.5 speech.py"
+CLIENT = "aimlapi-skills/1.0.6 speech.py"
 
 PENDING = {"queued", "pending", "waiting", "active", "generating", "processing", "in_progress"}
 SUCCESS = {"completed", "succeeded"}

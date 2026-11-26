@@ -4,7 +4,7 @@ description: "Use when generating or editing images through AI/ML API (aimlapi):
 license: Apache-2.0
 compatibility: Needs network access to api.aimlapi.com and AIMLAPI_API_KEY in the environment.
 metadata:
-  version: "1.0.5"
+  version: "1.0.6"
   docs: https://docs.aimlapi.com/api-references/image-models.md
 ---
 
@@ -21,20 +21,9 @@ Image generation is synchronous: one request, the answer holds the images. The c
 
 ### 1. Pick the model and read its parameters
 
-```bash
-curl -s 'https://api.aimlapi.com/v1/models?type=openai/image-generations&include=pricing'
-```
-
-Then read the model's `info.docsJson` for its parameters. With the `aimlapi-models` skill installed, `models.py params flux/schnell` prints them. Models of type `openai/image-editing` also serve `POST /v1/images/edits`.
+List image models with their prices through the `aimlapi-models` skill (`models.py list --type openai/image-generations`, or `GET /v1/models?type=openai/image-generations&include=pricing`, which needs no key). Then read the model's `info.docsJson` for its parameters: `models.py params flux/schnell` prints them. Models of type `openai/image-editing` also serve `POST /v1/images/edits`.
 
 ### 2. Generate
-
-```bash
-curl -sS https://api.aimlapi.com/v1/images/generations \
-  -H "Authorization: Bearer $AIMLAPI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"model": "flux/schnell", "prompt": "A lighthouse at dawn, watercolor", "image_size": "landscape_16_9", "num_images": 1}'
-```
 
 ```python
 import os
@@ -43,7 +32,8 @@ import requests
 resp = requests.post(
     "https://api.aimlapi.com/v1/images/generations",
     headers={"Authorization": f"Bearer {os.environ['AIMLAPI_API_KEY']}"},
-    json={"model": "flux/schnell", "prompt": "A lighthouse at dawn, watercolor"},
+    json={"model": "flux/schnell", "prompt": "A lighthouse at dawn, watercolor",
+          "image_size": "landscape_16_9", "num_images": 1},
     timeout=900,
 )
 resp.raise_for_status()

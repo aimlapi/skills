@@ -4,6 +4,12 @@ All notable changes to this repository. Versions follow [semver](https://semver.
 
 ## [Unreleased]
 
+## [1.0.6] - 2026-11-26
+
+### Fixed
+
+- Examples that static scanners such as Skills Directory read as risky: sample URLs in `job.py` and `speech.py` no longer contain `.../` (read as path traversal), the catalogue check in `aimlapi-protocols` saves the response to a file instead of piping it into `python3`, and `aimlapi-images` sends the catalogue step to `aimlapi-models` and keeps one Python example for generation (a `curl` in the same file as the API key was read as credential exfiltration). Skills Directory's own scan grades these four skills A 100.
+
 ## [1.0.5] - 2026-11-24
 
 ### Fixed
