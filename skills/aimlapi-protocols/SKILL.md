@@ -23,7 +23,8 @@ Most chat models on AI/ML API answer on all three text protocols: `POST /v1/chat
 ### 1. Check that the model serves the protocol
 
 ```bash
-curl -s 'https://api.aimlapi.com/v1/models?id=deepseek/deepseek-chat' | python3 -c 'import json,sys; [print(m["type"], m.get("translatedFrom", "native")) for m in json.load(sys.stdin)["data"]]'
+curl -s 'https://api.aimlapi.com/v1/models?id=deepseek/deepseek-chat' -o models.json
+python3 -c 'import json; [print(m["type"], m.get("translatedFrom", "native")) for m in json.load(open("models.json"))["data"]]'
 ```
 
 - The model must list the route's `type`: `openai/responses/submit` for `/v1/responses`, `anthropic/messages` for `/v1/messages`. `translatedFrom` marks a translated route.

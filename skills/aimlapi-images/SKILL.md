@@ -31,9 +31,8 @@ Then read the model's `info.docsJson` for its parameters. With the `aimlapi-mode
 
 ```bash
 curl -sS https://api.aimlapi.com/v1/images/generations \
-  -H "Authorization: Bearer $AIMLAPI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"model": "flux/schnell", "prompt": "A lighthouse at dawn, watercolor", "image_size": "landscape_16_9", "num_images": 1}'
+  -H "Authorization: Bearer $AIMLAPI_API_KEY" -H 'Content-Type: application/json' -d '{
+  "model": "flux/schnell", "prompt": "A lighthouse at dawn, watercolor", "image_size": "landscape_16_9", "num_images": 1}'
 ```
 
 ```python

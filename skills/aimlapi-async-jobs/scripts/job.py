@@ -3,7 +3,7 @@
 
   job.py submit video    --body '{"model": "...", "prompt": "..."}' [--download out.mp4]
   job.py submit music    --body @request.json
-  job.py submit stt      --body '{"model": "...", "url": "https://.../audio.mp3"}'
+  job.py submit stt      --body '{"model": "...", "url": "https://example.com/audio.mp3"}'
   job.py submit response --body '{"model": "...", "input": "..."}'      # sent with background: true
   job.py poll   video <id>
 

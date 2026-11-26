@@ -3,7 +3,7 @@
 
   speech.py tts  --body '{"model": "...", "text": "..."}' --out speech.mp3
   speech.py tts  --body @request.json --out speech.mp3
-  speech.py stt  --model <id> --url https://.../meeting.mp3 [--body '{"language": "en"}']
+  speech.py stt  --model <id> --url https://example.com/meeting.mp3 [--body '{"language": "en"}']
   speech.py stt  --model <id> --file meeting.mp3 [--field audio|file] [--out answer.json]
   speech.py poll <generation_id> [--out answer.json]
 
