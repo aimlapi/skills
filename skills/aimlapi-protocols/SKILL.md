@@ -4,7 +4,7 @@ description: "Use when a model should be called through a protocol it does not n
 license: Apache-2.0
 compatibility: Needs network access to api.aimlapi.com and AIMLAPI_API_KEY in the environment.
 metadata:
-  version: "1.0.9"
+  version: "1.0.10"
   docs: https://docs.aimlapi.com/api-references/service-endpoints/complete-model-list.md
 ---
 
