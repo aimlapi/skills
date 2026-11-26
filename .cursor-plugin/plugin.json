@@ -1,6 +1,6 @@
 {
   "name": "aimlapi",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Skills for AI/ML API, one API for 10,000+ AI models and tools: choosing models, chat on any protocol, images, video and audio jobs, speech, decision models, webhooks, batches, errors, costs and sandbox testing",
   "author": {
     "name": "AI/ML API",

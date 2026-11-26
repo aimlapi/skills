@@ -4,7 +4,7 @@ description: "Use when choosing an AI/ML API (aimlapi) model for a task, turning
 license: Apache-2.0
 compatibility: Needs network access to api.aimlapi.com. No API key required.
 metadata:
-  version: "1.0.9"
+  version: "1.0.10"
   docs: https://docs.aimlapi.com/api-references/service-endpoints/complete-model-list.md
 ---
 

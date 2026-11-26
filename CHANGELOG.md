@@ -4,6 +4,12 @@ All notable changes to this repository. Versions follow [semver](https://semver.
 
 ## [Unreleased]
 
+## [1.0.10] - 2026-11-26
+
+### Changed
+
+- The Tessl plugin `aimlapi/skills` is public (`"private": false` in `.tessl-plugin/plugin.json`).
+
 ## [1.0.9] - 2026-11-26
 
 ### Added
