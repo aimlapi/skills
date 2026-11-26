@@ -63,7 +63,7 @@ Offer the row whose `PRESET` column says `default` (with `--json`: `"default": t
 AIMLAPI_NO_UPDATE_CHECK=1 aimlapi <agent> --config --dry-run --model <id> </dev/null
 ```
 
-Summarize the dry run: files changed, what is added and replaced, the notes. What each agent gets is in [references/agents.md](agents.md). Every changed file is backed up under `~/.aimlapi/backups/<agent>/<timestamp>/`.
+Summarize the dry run: files changed, what is added and replaced, the notes. What each agent gets is in [references/agent-files.md](agent-files.md). Every changed file is backed up under `~/.aimlapi/backups/<agent>/<timestamp>/`.
 
 Exit `4` (agent not installed): describe the change and ask once: "<Agent> is not installed. Install it with `<printed npm command>` and apply this setup?" On a clear yes, run step 7 with `--yes` added. `hermes` and `zcode` are not installed by npm: show their command and let the user install them.
 
@@ -84,7 +84,7 @@ AIMLAPI_NO_UPDATE_CHECK=1 aimlapi status
 AIMLAPI_NO_UPDATE_CHECK=1 aimlapi <agent> --config --dry-run --model <id> </dev/null
 ```
 
-`status` exits `0` and the dry run lists every file as `unchanged`. If it shows changes, do not run `--config` again: show the output and ask. Then tell the user how to start using it ([references/agents.md](agents.md) § Restart). This session keeps its current provider until the user restarts; say so.
+`status` exits `0` and the dry run lists every file as `unchanged`. If it shows changes, do not run `--config` again: show the output and ask. Then tell the user how to start using it ([references/agent-files.md](agent-files.md) § Restart). This session keeps its current provider until the user restarts; say so.
 
 ## Roll back
 

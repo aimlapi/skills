@@ -4,7 +4,7 @@ description: "Use when an AI/ML API (aimlapi) request fails with a 4xx or 5xx st
 license: Apache-2.0
 compatibility: Applies to any language. Examples in Python and TypeScript.
 metadata:
-  version: "1.0.6"
+  version: "1.0.9"
   docs: https://docs.aimlapi.com/errors-and-messages/general-info.md
 ---
 

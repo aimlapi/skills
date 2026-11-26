@@ -117,6 +117,7 @@ def repo_version() -> str:
         "gemini-extension.json": json.loads((ROOT / "gemini-extension.json").read_text())["version"],
         ".codex-plugin/plugin.json": json.loads((ROOT / ".codex-plugin/plugin.json").read_text())["version"],
         ".antigravity-plugin/plugin.json": json.loads((ROOT / ".antigravity-plugin/plugin.json").read_text())["version"],
+        ".tessl-plugin/plugin.json": json.loads((ROOT / ".tessl-plugin/plugin.json").read_text())["version"],
     }
     if len(set(versions.values())) != 1:
         fail("versions", f"manifests disagree: {versions}")

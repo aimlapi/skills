@@ -4,7 +4,7 @@ description: "Use when a coding agent (Claude Code, Codex, OpenCode, Cline, Open
 license: Apache-2.0
 compatibility: Needs Node.js 18+, npm, network access to aimlapi.com, and a shell the agent can run commands in.
 metadata:
-  version: "1.0.6"
+  version: "1.0.9"
   docs: https://docs.aimlapi.com/quickstart/cli/aimlapi-setup.md
 ---
 
@@ -43,7 +43,7 @@ The `aimlapi` CLI (npm `aimlapi`) signs the user in, stores the key on this mach
 
 ### 1. Pick the agent
 
-Ids: `claude`, `codex`, `opencode`, `cline`, `openclaude`, `zcode`, `hermes`; `openclaw`, `zero` only when named. Default to the agent you run in ([references/agents.md](references/agents.md)); Claude Code and OpenClaude share one variable, so if unsure, ask.
+Ids: `claude`, `codex`, `opencode`, `cline`, `openclaude`, `zcode`, `hermes`; `openclaw`, `zero` only when named. Default to the agent you run in ([references/agent-files.md](references/agent-files.md)); Claude Code and OpenClaude share one variable, so if unsure, ask.
 
 ### 2. Check Node.js 18+
 
@@ -73,7 +73,7 @@ AIMLAPI_NO_UPDATE_CHECK=1 aimlapi models --agent <agent>
 AIMLAPI_NO_UPDATE_CHECK=1 aimlapi <agent> --config --dry-run --model <id> </dev/null
 ```
 
-Offer the row marked `default`; never guess an id. Summarize the dry run for the user ([references/agents.md](references/agents.md)). Exit `4`: ask once whether to install the agent; on a yes, add `--yes` in step 7. Ask "Apply these changes?" and go on only on a clear yes.
+Offer the row marked `default`; never guess an id. Summarize the dry run for the user ([references/agent-files.md](references/agent-files.md)). Exit `4`: ask once whether to install the agent; on a yes, add `--yes` in step 7. Ask "Apply these changes?" and go on only on a clear yes.
 
 ### 7. Apply
 
@@ -85,7 +85,7 @@ Relay the `Note:` lines and the backup directory.
 
 ### 8. Verify and restart
 
-`aimlapi status` exits `0` and the step 6 dry run shows every file `unchanged` (if not, show it and ask; never re-apply). Tell the user how to restart their agent ([references/agents.md](references/agents.md) § Restart).
+`aimlapi status` exits `0` and the step 6 dry run shows every file `unchanged` (if not, show it and ask; never re-apply). Tell the user how to restart their agent ([references/agent-files.md](references/agent-files.md) § Restart).
 
 To undo: `aimlapi <agent> --undo --dry-run`, show it, then `--undo` on a yes ([references/troubleshooting.md](references/troubleshooting.md) § Roll back).
 
@@ -102,6 +102,6 @@ A `--config` command that shows a menu and never ends was run without `--model`:
 
 ## Reference
 
-- [references/agents.md](references/agents.md): agent detection, files changed per agent, restart steps
+- [references/agent-files.md](references/agent-files.md): agent detection, files changed per agent, restart steps
 - [references/troubleshooting.md](references/troubleshooting.md): step details, install errors, roll back, symptoms
 - CLI docs: https://docs.aimlapi.com/quickstart/cli.md

@@ -4,6 +4,19 @@ All notable changes to this repository. Versions follow [semver](https://semver.
 
 ## [Unreleased]
 
+## [1.0.9] - 2026-11-26
+
+### Added
+
+- `.tessl-plugin/plugin.json`: the 13 skills as one plugin, `aimlapi/skills`, in the Tessl registry. 1.0.7 and 1.0.8 exist only as private Tessl builds and were never tagged.
+
+### Fixed
+
+- `aimlapi-setup`: `references/agents.md` is now `references/agent-files.md`; Tessl's packer leaves out files named `agents.md`, so the link was broken there.
+- `aimlapi-setup`: no longer suggests keeping the key in a shell profile for `zero`; `aimlapi zero` starts it with the key.
+- README and `aimlapi-sandbox` say that the scripts send `User-Agent` and `x-aimlapi-client` headers naming the script.
+- `aimlapi-webhooks`: creating or rotating the signing secret saves the response to `webhook-secret.json` and prints a masked copy, so the `whsec_` value never reaches the agent's context (Tessl's security review rated the old step Medium).
+
 ## [1.0.6] - 2026-11-26
 
 ### Fixed

@@ -131,7 +131,7 @@ The catalogue and deprecation feed need no key.
 
 ## Your key and your data
 
-The skills hold no key and collect nothing. Their scripts and the code they write read your key from `AIMLAPI_API_KEY` and send it only to AI/ML API (`api.aimlapi.com`), in the `Authorization` header of the requests you ask for. Result files are downloaded from the links the API returns, without the key. The model catalogue, prices and live speed are read without a key. Nothing is sent anywhere else, and no telemetry is collected. See the [privacy policy](https://aimlapi.com/privacy-policy).
+The skills hold no key and collect nothing. Their scripts and the code they write read your key from `AIMLAPI_API_KEY` and send it only to AI/ML API (`api.aimlapi.com`), in the `Authorization` header of the requests you ask for. Result files are downloaded from the links the API returns, without the key. The model catalogue, prices and live speed are read without a key. The scripts name themselves in the `User-Agent` and `x-aimlapi-client` headers (for example `aimlapi-skills/<version> try.py`) so these requests can be told apart; nothing else about you or your machine is sent. Nothing is sent anywhere else, and no telemetry is collected. See the [privacy policy](https://aimlapi.com/privacy-policy).
 
 ## How the skills are written
 

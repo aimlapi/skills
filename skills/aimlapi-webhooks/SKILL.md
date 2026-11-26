@@ -4,7 +4,7 @@ description: "Use when an AI/ML API (aimlapi) job should notify a server instead
 license: Apache-2.0
 compatibility: Needs network access to api.aimlapi.com, AIMLAPI_API_KEY, a management API key for the secret, and a public HTTPS endpoint.
 metadata:
-  version: "1.0.6"
+  version: "1.0.9"
   docs: https://docs.aimlapi.com/capabilities/webhooks.md
 ---
 
@@ -24,12 +24,14 @@ Add `webhook_url` to an async request; when the job ends, AI/ML API POSTs a sign
 ### 1. Create the signing secret: management key only
 
 ```bash
-curl -sS -X POST https://api.aimlapi.com/v1/webhooks/secret \
-  -H "Authorization: Bearer $AIMLAPI_MANAGEMENT_KEY" -H "Content-Type: application/json" -d '{}'
+(umask 077; curl -sS -X POST https://api.aimlapi.com/v1/webhooks/secret \
+  -H "Authorization: Bearer $AIMLAPI_MANAGEMENT_KEY" -H "Content-Type: application/json" -d '{}' \
+  -o webhook-secret.json)
+sed -E 's/whsec_[A-Za-z0-9+\/=]+/whsec_[hidden]/g' webhook-secret.json
 ```
 
 - Only an organization owner or workspace admin can do this, from the dashboard or with a **management** API key ([how to get one](https://docs.aimlapi.com/faq/how-can-i-work-with-my-api-keys.md)). An inference key gets `403 webhook_secret_owner_only`.
-- `secret` (`whsec_…`) is **shown once**. The user stores it as `AIMLAPI_WEBHOOK_SECRET` in their secret manager; never print it into the chat or commit it.
+- `secret` (`whsec_…`) is **shown once**. The response goes to `webhook-secret.json` and only a masked copy is printed, so the value never enters the chat. The user moves it to their secret manager as `AIMLAPI_WEBHOOK_SECRET` and deletes the file; never `cat` it or commit it.
 - Without a secret, any request with `webhook_url` gets `400 webhook_secret_required`.
 
 ### 2. Add `webhook_url` to the request
@@ -75,8 +77,10 @@ The event is `{"object": "event", "id", "type", "created_at", "data"}`; `data.re
 There is no instant revocation. Rotate with the shortest grace period and switch receivers within it:
 
 ```bash
-curl -sS -X POST https://api.aimlapi.com/v1/webhooks/secret \
-  -H "Authorization: Bearer $AIMLAPI_MANAGEMENT_KEY" -H "Content-Type: application/json" -d '{"grace_seconds": 300}'
+(umask 077; curl -sS -X POST https://api.aimlapi.com/v1/webhooks/secret \
+  -H "Authorization: Bearer $AIMLAPI_MANAGEMENT_KEY" -H "Content-Type: application/json" -d '{"grace_seconds": 300}' \
+  -o webhook-secret.json)
+sed -E 's/whsec_[A-Za-z0-9+\/=]+/whsec_[hidden]/g' webhook-secret.json
 ```
 
 - `grace_seconds`: 300 to 604800; the default is 24 h. Both secrets sign until it ends.

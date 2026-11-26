@@ -4,7 +4,7 @@ description: "Use when generating or editing images through AI/ML API (aimlapi):
 license: Apache-2.0
 compatibility: Needs network access to api.aimlapi.com and AIMLAPI_API_KEY in the environment.
 metadata:
-  version: "1.0.6"
+  version: "1.0.9"
   docs: https://docs.aimlapi.com/api-references/image-models.md
 ---
 
