@@ -4,7 +4,7 @@ description: "Use when testing, mocking or running CI against AI/ML API (aimlapi
 license: Apache-2.0
 compatibility: Needs network access to api.aimlapi.com and AIMLAPI_API_KEY (a live or a sandbox key) in the environment.
 metadata:
-  version: "1.0.10"
+  version: "1.0.11"
   docs: https://docs.aimlapi.com/capabilities/sandbox-mode.md
 ---
 
