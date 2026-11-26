@@ -4,7 +4,7 @@ All notable changes to this repository. Versions follow [semver](https://semver.
 
 ## [Unreleased]
 
-## [1.0.7] - 2026-11-26
+## [1.0.8] - 2026-11-26
 
 ### Added
 
@@ -12,6 +12,7 @@ All notable changes to this repository. Versions follow [semver](https://semver.
 
 ### Fixed
 
+- `aimlapi-setup`: `references/agents.md` is now `references/agent-files.md`; Tessl's packer leaves out files named `agents.md`, so the link was broken there.
 - `aimlapi-webhooks`: creating or rotating the signing secret saves the response to `webhook-secret.json` and prints a masked copy, so the `whsec_` value never reaches the agent's context (Tessl's security review rated the old step Medium).
 
 ## [1.0.6] - 2026-11-26
