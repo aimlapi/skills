@@ -50,6 +50,6 @@ Every dry run also shows a `create` of `~/.aimlapi/agents/<agent>/previous/<hash
 | `cline` | Next CLI run; in VS Code: "Developer: Reload Window" | none |
 | `openclaude` | Quit and start again. Switching provider with `/provider` later removes only part of the settings; use `aimlapi openclaude --undo` | `/status` shows the AI/ML API base URL |
 | `openclaw` | A running Gateway reloads by itself; start a new session with `/new` | `openclaw config validate` |
-| `zero` | `aimlapi zero` starts it with the key. Plain `zero` needs `AIMLAPI_CLI_KEY` in the user's shell: the user may add `export AIMLAPI_CLI_KEY="$(aimlapi key print)"` to their profile themselves; do not run it | `zero providers list` shows `aimlapi-cli` active |
+| `zero` | `aimlapi zero` starts it with the key. Plain `zero` needs `AIMLAPI_CLI_KEY` in the environment; use `aimlapi zero` instead of keeping the key in a shell profile | `zero providers list` shows `aimlapi-cli` active |
 | `zcode` | A running ZCode picks it up; start a new session | the model picker lists "AI/ML API" |
 | `hermes` | New `hermes` session; a running gateway needs `hermes gateway restart` | `/model` shows "AI/ML API (aimlapi CLI)" |

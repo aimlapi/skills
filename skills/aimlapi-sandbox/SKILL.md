@@ -98,5 +98,5 @@ Remove the switch: drop the `sandbox/` prefix, the header, or swap the sandbox k
 ## Reference
 
 - https://docs.aimlapi.com/capabilities/sandbox-mode.md (limits, per-endpoint defaults, streaming details)
-- `scripts/try.py`: send one request in sandbox mode and print status, sandbox and cost headers, and the body
+- `scripts/try.py`: send one request in sandbox mode (headers `User-Agent` and `x-aimlapi-client` name the script) and print status, sandbox and cost headers, and the body
 - [references/errors.md](references/errors.md): sandbox error codes and limits
