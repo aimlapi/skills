@@ -49,7 +49,7 @@ CI runs the same checks on every pull request, and every night it also checks ro
 
 ## Releases
 
-One version for the whole repository (semver), kept in `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.cursor-plugin/plugin.json`, `.cursor-plugin/marketplace.json`, `package.json`, `gemini-extension.json`, `.codex-plugin/plugin.json`, `.antigravity-plugin/plugin.json` and each `metadata.version`. `python3 tools/check.py` fails if they differ.
+One version for the whole repository (semver), kept in `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.cursor-plugin/plugin.json`, `.cursor-plugin/marketplace.json`, `package.json`, `gemini-extension.json`, `.codex-plugin/plugin.json`, `.antigravity-plugin/plugin.json`, `.tessl-plugin/plugin.json` and each `metadata.version`. `python3 tools/check.py` fails if they differ.
 
 - **major**: a skill renamed or removed
 - **minor**: a new skill or a new section
