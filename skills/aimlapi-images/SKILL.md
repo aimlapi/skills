@@ -36,7 +36,8 @@ import requests
 resp = requests.post(
     "https://api.aimlapi.com/v1/images/generations",
     headers={"Authorization": f"Bearer {os.environ['AIMLAPI_API_KEY']}"},
-    json={"model": "flux/schnell", "prompt": "A lighthouse at dawn, watercolor"},
+    json={"model": "flux/schnell", "prompt": "A lighthouse at dawn, watercolor",
+          "image_size": "landscape_16_9", "num_images": 1},
     timeout=900,
 )
 resp.raise_for_status()
